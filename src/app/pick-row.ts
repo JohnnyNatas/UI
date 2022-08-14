@@ -1,5 +1,6 @@
 import { PickColumn } from "./pick-column";
 
-export interface PickRow{
-    pickColumns: PickColumn[]
+export class PickRow{
+    
+    pickColumns: PickColumn[]=[];    
 }

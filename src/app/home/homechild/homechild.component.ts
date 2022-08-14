@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PickBlock } from '../../pick-block'
 import { PickArea } from '../../pick-area'
+import { HomechildService } from './homechild.service';
+
 @Component({
   selector: 'app-homechild',
   templateUrl: './homechild.component.html',
@@ -13,69 +15,17 @@ export class HomechildComponent implements OnInit {
   rows:number;
   pickArea: PickArea;
 
-  constructor() {
-    this.columns = 4;
-    this.rows = 4;
+  constructor(homeChildService: HomechildService) {
+    this.columns = 10;
+    this.rows = 10;
 
-    
-    this.pickArea = {
-      pickRows: [{
-        pickColumns:[
-          {
-            block:{
-              row: 1,
-              column: 2
-            }
-          }
-        ]
-      }]
-    };
-    
-    this.createPickBlocks();
+    this.pickArea = homeChildService.create(this.rows ,this.columns);  
+
   }
 
-  createPickBlocks(){
-    this.pickArea = {
-      pickRows: [{
-        pickColumns:[
-          {
-            block:{
-              row: 0,
-              column: 0
-            }
-          },
-          {
-            block:{
-              row: 0,
-              column: 1
-            }
-          }
-          ,
-          {
-            block:{
-              row: 0,
-              column: 1
-            }
-          }
-        ]
-      },
-      {
-        pickColumns:[
-          {
-            block:{
-              row: 1,
-              column: 0
-            }
-          },
-          {
-            block:{
-              row: 1,
-              column: 1
-            }
-          }
-        ]
-      }]
-    };
+  blockSelected(selection:PickBlock):void {
+
+    console.info("clicked at row =" + selection.row + ",column = " + selection.column);        
   }
 
   ngOnInit(): void {
