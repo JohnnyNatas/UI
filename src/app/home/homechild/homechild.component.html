@@ -1,7 +1,8 @@
-<div>     
-    <div class="row" *ngFor="let row of pickArea.pickRows">
-        <div class="col" *ngFor="let col of row.pickColumns">        
-            <div class="block" (click)="blockSelected(col.block)"></div>                
+<div class="container">     
+    <div class="row " *ngFor="let row of pickArea.pickRows"> <!--  -->
+        <div class="col p-1" *ngFor="let col of row.pickColumns"> <!-- -->       
+            <div (click)="blockSelected(col.block)" (mouseover)="overBlock(col.block)" (mouseout)="leftBlock(col.block)"
+             class="block frontpage_square" [class.selected-block]="col.block.mouseOver"></div> <!-- class="block" -->               
         </div>     
     </div>    
 </div>

@@ -15,6 +15,8 @@ export class HomechildComponent implements OnInit {
   rows:number;
   pickArea: PickArea;
 
+  currentPickBlock: PickBlock | undefined;
+
   constructor(homeChildService: HomechildService) {
     this.columns = 10;
     this.rows = 10;
@@ -24,9 +26,35 @@ export class HomechildComponent implements OnInit {
   }
 
   blockSelected(selection:PickBlock):void {
-
+    
     console.info("clicked at row =" + selection.row + ",column = " + selection.column);        
   }
+
+  overBlock(selection:PickBlock):void {
+    console.info("clicked at row =" + selection.row + ",column = " + selection.column);        
+    selection.mouseOver = true;
+    this.currentPickBlock = selection;
+    
+  }
+  
+  leftBlock(selection:PickBlock):void {
+    console.info("clicked at row =" + selection.row + ",column = " + selection.column);        
+    selection.mouseOver = false
+    this.currentPickBlock = undefined;    
+  }
+
+  mark(): void{
+
+  }
+
+  /*
+  isMouseOver(): boolean{
+    if (this.currentPickBlock != undefined && this.currentPickBlock.mouseOver)
+      return true;
+    else 
+      return false;
+  }
+  */
 
   ngOnInit(): void {
 
