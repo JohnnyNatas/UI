@@ -16,13 +16,14 @@ export class HomechildComponent implements OnInit {
   pickArea: PickArea;
 
   currentPickBlock: PickBlock | undefined;
+  allPickBlocks: PickBlock[] | undefined;
 
   constructor(homeChildService: HomechildService) {
     this.columns = 10;
     this.rows = 10;
 
-    this.pickArea = homeChildService.create(this.rows ,this.columns);  
-
+    this.pickArea = homeChildService.create(this.rows ,this.columns);      
+    this.allPickBlocks = this.pickArea.allPickBlocks;
   }
 
   blockSelected(selection:PickBlock):void {
@@ -44,17 +45,21 @@ export class HomechildComponent implements OnInit {
   }
 
   mark(): void{
-
+    if(this.currentPickBlock != undefined){
+      this.allPickBlocks?.forEach((element)=>{
+        if((element.row <= this.currentPickBlock?.row) && (element.column <= this.currentPickBlock?.column)){
+          element.marked = true;  
+        }        
+    })
+    }
   }
 
-  /*
-  isMouseOver(): boolean{
-    if (this.currentPickBlock != undefined && this.currentPickBlock.mouseOver)
-      return true;
-    else 
-      return false;
+  unmark(): void{
+    this.allPickBlocks?.forEach((element)=>{
+         element.marked = false;
+    })
   }
-  */
+
 
   ngOnInit(): void {
 

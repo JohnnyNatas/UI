@@ -24,6 +24,8 @@ export class HomechildService {
       
       for(let j=0; j < columns;j++){
         let pickBlock = new PickBlock(i,j);
+        pa.allPickBlocks.push(pickBlock );
+        
         let pickColumn = new PickColumn(pickBlock);
         pr.pickColumns.push(pickColumn);
       }            
