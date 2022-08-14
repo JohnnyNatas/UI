@@ -35,21 +35,25 @@ export class HomechildComponent implements OnInit {
     console.info("clicked at row =" + selection.row + ",column = " + selection.column);        
     selection.mouseOver = true;
     this.currentPickBlock = selection;
-    
+    this.mark() ;
   }
   
   leftBlock(selection:PickBlock):void {
     console.info("clicked at row =" + selection.row + ",column = " + selection.column);        
     selection.mouseOver = false
     this.currentPickBlock = undefined;    
+    this.unmark() ;
   }
 
   mark(): void{
     if(this.currentPickBlock != undefined){
       this.allPickBlocks?.forEach((element)=>{
-        if((element.row <= this.currentPickBlock?.row) && (element.column <= this.currentPickBlock?.column)){
+        if(this.currentPickBlock?.row != undefined && this.currentPickBlock?.column != undefined )
+        {
+          if((element.row <= this.currentPickBlock?.row) && (element.column <= this.currentPickBlock?.column)){
           element.marked = true;  
-        }        
+        }    
+      }    
     })
     }
   }
