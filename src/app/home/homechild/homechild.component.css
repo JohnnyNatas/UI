@@ -6,6 +6,10 @@
     border: 4px solid black;
 }
 
+.marked-block{
+    background-color: red;
+}
+
 .frontpage_square{
     position:relative;
     overflow:hidden;
