@@ -1,21 +1,10 @@
-<!-- <div *ngFor="let language of ProgrammingLanguages">     -->
+<!-- <div *ngFor="let language of ProgrammingLanguages">     [(ngModel)]="col.block"-->
 <div>     
-    <div class="row">
-        <div class="col">        
-            <div class="block"></div>
-        </div>   
-        <div  class="col">        
+    <div class="row" *ngFor="let row of pickArea.pickRows">
+        <div class="col" *ngFor="let col of row.pickColumns">        
             <div class="block"></div>
         </div>     
-    </div>
-    <div class="row">
-        <div class="col">        
-            <div class="block"></div>
-        </div>           
-        <div class="col">        
-            <div class="block"></div>
-        </div>     
-    </div>
+    </div>    
 </div>
 
 <!--

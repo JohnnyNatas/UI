@@ -17,6 +17,7 @@ export class HomechildComponent implements OnInit {
     this.columns = 4;
     this.rows = 4;
 
+    
     this.pickArea = {
       pickRows: [{
         pickColumns:[
@@ -39,8 +40,37 @@ export class HomechildComponent implements OnInit {
         pickColumns:[
           {
             block:{
+              row: 0,
+              column: 0
+            }
+          },
+          {
+            block:{
+              row: 0,
+              column: 1
+            }
+          }
+          ,
+          {
+            block:{
+              row: 0,
+              column: 1
+            }
+          }
+        ]
+      },
+      {
+        pickColumns:[
+          {
+            block:{
               row: 1,
-              column: 2
+              column: 0
+            }
+          },
+          {
+            block:{
+              row: 1,
+              column: 1
             }
           }
         ]
